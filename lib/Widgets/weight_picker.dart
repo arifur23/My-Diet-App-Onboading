@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:my_diet_app_onboarding/Screens/About/weight_slider.dart';
 import 'widget_utils.dart';
+import 'widgets.dart';
 
 class WeightCard extends StatelessWidget {
   final int weight;

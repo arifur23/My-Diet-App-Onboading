@@ -1,12 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_diet_app_onboarding/Screens/About/weight_picker.dart';
-import 'dart:math' as math;
-import 'custom_paint_class.dart';
-import 'height_picker.dart';
-import 'weight_slider.dart';
+import '../Widgets/custom_paint_class.dart';
+import '../Widgets/height_picker.dart';
 
 enum Gender{
   male,
@@ -171,20 +166,22 @@ class _AboutYouState extends State<AboutYou> {
                   child: Container(
                     height: 130,
                     width: size.width,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 200,
-                        itemExtent: size.width / 7,
-                        itemBuilder: (context, index) {
-                          int item = 1 + index;
-                          return Transform(
-                              transform: matrix4(30.0, 30.0, 0.0),
-                              child: Text(item.toString(),
-                                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black),
-                              )
-                          );
-                        }
+                    child: NotificationListener(
+                      child: ListView.builder(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 200,
+                          itemExtent: size.width / 7,
+                          itemBuilder: (context, index) {
+                            int item = 1 + index;
+                            return Transform(
+                                transform: matrix4(30.0, 30.0, 0.0),
+                                child: Text(item.toString(),
+                                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black),
+                                )
+                            );
+                          }
+                      ),
                     ),
                   ),
                 ),
@@ -214,32 +211,6 @@ class _AboutYouState extends State<AboutYou> {
                 )
               ]
             )
-
-
-              // Container(
-              //   height: size.height * .19,
-              //   width: size.width * .328,
-              //   color: Colors.white,
-              //   child: WeightBackground(
-              //     child: LayoutBuilder(
-              //       builder: (context, constraints) {
-              //         return constraints.isTight
-              //             ? Container()
-              //             : WeightSlider(
-              //           minValue: 20,
-              //           maxValue: 210,
-              //           value: weight,
-              //           onChanged: (val) {
-              //             setState(() {
-              //               weight = val;
-              //             });
-              //           },
-              //           width: constraints.maxWidth,
-              //         );
-              //       },
-              //     ),
-              //   )
-              //
                ),
           const SizedBox(height: 20,)
         ]
@@ -247,36 +218,8 @@ class _AboutYouState extends State<AboutYou> {
     );
   }
 
+
   Matrix4 matrix4( double x, double y, double z){
     return Matrix4.identity()..translate(x, y, z);
   }
 }
-
-
-
-// Column(
-//   children: [
-//     Container(
-//       height: 80,
-//       width: 300,
-//       color: Colors.grey,
-//       child: Transform(
-//         transform: Matrix4.identity()
-//           ..translate(-100.0, 30.0, 10.0),
-//         child: Transform.rotate(
-//           angle: -1,
-//           child: const Center(child: Text('50')),
-//         ),
-//       ),
-//     ),
-//     Transform(
-//       transform: Matrix4.identity()
-//         ..translate(60.0, -30.0, 10.0),
-//       child: Transform.rotate(
-//         angle: 1,
-//         child: const Center(child: Text('50')),
-//       ),
-//     )
-//   ],
-// ),
-

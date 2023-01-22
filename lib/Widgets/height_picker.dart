@@ -1,10 +1,8 @@
 import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'about_you.dart';
-import 'height_slider.dart';
-import 'height_styles.dart';
+import '../Screens/about_you.dart';
+import 'widgets.dart';
 
 
 class HeightPicker extends StatefulWidget {
@@ -44,7 +42,7 @@ class _HeightPickerState extends State<HeightPicker> {
     return halfOfBottomLabel + unitsFromBottom * _pixelsPerUnit;
   }
 
-  ///returns actual input_page.height of slider to be able to slide
+
   double get _drawingHeight {
     double totalHeight = widget.widgetHeight;
     double marginBottom = marginBottomAdapted(context);
@@ -109,15 +107,11 @@ class _HeightPickerState extends State<HeightPicker> {
     double dy = localPosition.dy;
     dy = dy - marginTopAdapted(context) - labelsFontSize / 2;
     int height = widget.maxHeight - (dy ~/ _pixelsPerUnit);
-    print("dx" + localPosition.dx.toString());
-    // print('dy' + (dy ~/ _pixelsPerUnit).toString());
-    print('height' + height.toString());
     return height;
   }
 
   _onTapDown(TapDownDetails tapDownDetails) {
     int height = _globalOffsetToHeight(tapDownDetails.globalPosition);
-    print('normalize' + _normalizeHeight(height).toString());
     widget.onChange(_normalizeHeight(height));
   }
 
@@ -136,7 +130,6 @@ class _HeightPickerState extends State<HeightPicker> {
     double verticalDifference = startDragYOffset - currentYOffset;
     int diffHeight = verticalDifference ~/ _pixelsPerUnit;
     int height = _normalizeHeight(startDragHeight + diffHeight);
-    print('new Height' + height.toString());
     setState(() => widget.onChange(height));
   }
 

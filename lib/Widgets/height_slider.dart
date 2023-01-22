@@ -15,7 +15,6 @@ class HeightSlider extends StatelessWidget {
 
           Row(
             children: <Widget>[
-              // SliderCircle(),
               const Expanded(child: SliderLine()),
               Row(
                 children: [
@@ -86,27 +85,6 @@ class SliderLine extends StatelessWidget {
                       : Colors.white),
             ),
           )),
-    );
-  }
-}
-
-class SliderCircle extends StatelessWidget {
-  const SliderCircle({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: circleSizeAdapted(context),
-      height: circleSizeAdapted(context),
-      decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor,
-        shape: BoxShape.circle,
-      ),
-      child: Icon(
-        Icons.unfold_more,
-        color: Colors.white,
-        size: 0.6 * circleSizeAdapted(context),
-      ),
     );
   }
 }

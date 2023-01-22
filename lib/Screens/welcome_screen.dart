@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_diet_app_onboarding/Screens/About/about_you.dart';
+import 'package:my_diet_app_onboarding/Screens/about_you.dart';
 
 enum Auth{
  login,
