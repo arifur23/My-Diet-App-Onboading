@@ -25,10 +25,10 @@ class HeightPicker extends StatefulWidget {
   int get totalUnits => maxHeight - minHeight;
 
   @override
-  _HeightPickerState createState() => _HeightPickerState();
+  HeightPickerState createState() => HeightPickerState();
 }
 
-class _HeightPickerState extends State<HeightPicker> {
+class HeightPickerState extends State<HeightPicker> {
   late double startDragYOffset;
   late int startDragHeight;
 
